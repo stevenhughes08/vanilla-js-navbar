@@ -1,3 +1,5 @@
+// Define the array values for each object
+
 const navs = [{
         Text: ' Home ',
         Url: 'index.html',
