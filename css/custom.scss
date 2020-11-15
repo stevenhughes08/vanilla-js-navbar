@@ -1,0 +1,134 @@
+@import "settings.scss";
+html,
+body {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+    font-family: $clown-header-font;
+    &:not(.user-is-tabbing) button:focus,
+    &:not(.user-is-tabbing) input:focus,
+    &:not(.user-is-tabbing) select:focus,
+    &:not(.user-is-tabbing) textarea:fous {
+        outline: none;
+    }
+}
+
+header {
+    background-color: darken($primary, 10);
+    border-bottom: 2px black solid;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.no-mobile {
+    display: none;
+}
+
+.social-media-pane {
+    & a {
+        text-decoration: none;
+        color: black;
+        font-size: 1.25rem;
+        padding: 10px;
+        border-radius: 90px;
+        margin-left: 10px;
+        background-color: whitesmoke;
+        opacity: .6;
+        transition: width 2s, height 2s, transform 2s;
+        &:hover {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.burger {
+    display: block;
+    color: #ccc;
+    background-color: transparent;
+    border: none;
+}
+
+.nav {
+    margin: 0;
+    background: darken($primary, 25%);
+    color: #ccc;
+    position: absolute;
+    right: -100%;
+    top: 70px;
+    width: 50%;
+    height: calc(100% - 70px);
+    flex-direction: column;
+    justify-content: space-around;
+    list-style-type: none;
+    padding: 20px;
+    transition: all 400ms;
+    .dorak-nav-pic {
+        position: absolute;
+        align-self: center;
+        bottom: 20px;
+        width: 80%;
+        max-width: 80%;
+        margin: 10%;
+        transform: scale(30%) rotate(-10deg);
+        opacity: .7;
+        // &:hover {
+        //     content: '<img class="no-large dorak-nav-pic" src= "images/clown_head_line_art1.png">';
+        // }
+    }
+}
+
+.navlink {
+    text-align: center;
+    & a {
+        font-weight: 700;
+        font-size: 1.5rem;
+        transition: all .2s ease-in-out;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        text-shadow: 2px solid black;
+    }
+    &:hover {
+        transform: scale(1.25);
+        padding: 5px;
+    }
+}
+
+.nav-active {
+    right: 0;
+}
+
+@media screen and (min-width: 678px) {
+    .no-large {
+        display: none;
+    }
+    .burger {
+        font-size: 1.2em;
+        display: none;
+    }
+    .nav {
+        display: flex;
+        position: relative;
+        right: auto;
+        top: auto;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+    }
+    .navlink {
+        list-style-type: none;
+        margin: 0;
+        & a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-family: $clown-header-font;
+            &:hover {
+                color: #3399ff;
+            }
+        }
+    }
+}

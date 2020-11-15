@@ -1,7 +1,7 @@
 const navs = [{
-        Text: ' Home ',
-        Url: 'index.html',
-        Class: ' Home ',
+        Text: ' Characters ',
+        Url: 'characters.html',
+        Class: ' characters ',
         Alt: ' Click here to view the home link '
     },
     {
@@ -19,11 +19,9 @@ const navs = [{
     {
         Text: ' Link-3 ',
         Url: ' link-3.html ',
-        Class: ' Click here to visit Link-3 ',
+        Class: ' Link-3 ',
         Alt: ' Click Here to visit Link 3 '
     }
-
-
 ];
 
 // Loop that places list items to create the navBar. 
@@ -31,7 +29,7 @@ const navBarMarkup = `
 ${navs.map(nav => `<li class="navlink"><a href=${nav.Url} class="${nav.Class}" alt="${nav.Alt}">${nav.Text}</a>`).join(' ')}</li>
 `;
 
-document.querySelector(' ul ').innerHTML = navBarMarkup;
+document.querySelector(' #NavBar ').innerHTML = navBarMarkup;
 
 // Creates hamburger icon for mobile navigation
 
@@ -48,7 +46,24 @@ function toggleNav(){
     nav.classList.toggle('nav-active');
 }
 
+// detect if user is tabbing and decide if focus ring should be hidden
+
+function handleFirstTab(e){
+    if(e.keyCode === 9){
+        document.body.classList.add('user-is-tabbing');
+        window.removeEventListener('keydown', handleFirstTab);
+    }
+}
+
+window.addEventListener('keydown', handleFirstTab);
+
 // Calling the function after click event occurs
 burger.addEventListener('click', function() {
     toggleNav();
 });
+
+// Append clown head after the list slide in menu
+
+var item = document.createElement('li');
+item.innerHTML = '<img class="no-large dorak-nav-pic" src= "images/clown_head_line_art2.png">';
+document.getElementsByClassName(' nav ')[0].append(item);

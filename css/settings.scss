@@ -1,0 +1,96 @@
+// Variables
+$primary: #ff0000;
+$primary-light: lighten($primary, 25%);
+$primary-dark: darken($primary, 25%);
+$secondary: #222;
+$button-color:lighten($primary, 25);
+$button-color-hover: darken(whitesmoke, 20);
+$clown-header-font: 'Indie Flower',
+cursive;
+// $calc-height: calc(100vb / $nav-items);
+// Breakpoints
+$breakpoints: ( sm: 768px, md: 992px, lg: 1200px, ) !default;
+// Set Mixin
+@mixin breakpoint-down($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: #{inspect(map-get($breakpoints, $breakpoint))}) {
+            @content;
+        }
+    }
+    @else {
+        @warn "Invalid breakpoint you clown: #{$breakpoint}."+"Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+@mixin clown-heading {
+    font-family: $clown-header-font;
+    text-align: center;
+    list-style-type: none;
+    li {
+        &:hover {
+            transform: scale(1.25);
+        }
+    }
+}
+
+@mixin nav-button {
+    a {
+        background-color: none;
+        color: $primary;
+        &:hover {
+            color: #fff;
+            stroke: 2px $primary;
+        }
+        &:visited {
+            color: purple;
+        }
+    }
+}
+
+@mixin clown-cta-buttons {
+    .ctaBtns {
+        margin: 1% 5% 1% 5%;
+        p {
+            font-family: $clown-header-font;
+            color: $primary;
+            font-size: 3rem;
+            background-color: #fff;
+            box-shadow: 0px 0px 20px 20px #fff;
+            max-width: 98%;
+        }
+        @include breakpoint-down(sm) {
+            display: flex;
+            a.ctaBtn {
+                flex-basis: 100%;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+        @include breakpoint-down(md) {
+            display: inline-flex;
+            a.ctaBtn {
+                flex-basis: 33.3%;
+                max-width: 33.3%;
+                width: 33.3%;
+            }
+        }
+        @include breakpoint-down(lg) {
+            display: inline-flex;
+            a.ctaBtn {
+                flex-basis: 33.3%;
+                max-width: 33.3%;
+                width: 33.3%;
+            }
+        }
+        .ctaBtn {
+            background-color: #fff;
+            border: white 5px solid;
+            box-shadow: 0 0 8px 8px white inset;
+            transition: 2s;
+            transform: rotate(1deg);
+            &:hover {
+                background-color: $primary-dark;
+            }
+        }
+    }
+}
