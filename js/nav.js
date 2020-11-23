@@ -22,6 +22,10 @@ const navs = [{
         Class: ' Link-3 ',
         Alt: ' Click Here to visit Link 3 '
     }
+    // ,
+    // {
+    //     Text: '<div class = "social-media-pane"> <a href = "https://www.facebook.com/kalashnikovClowns" class = "fab fa-facebook" aria - label = "FaceBook" target = "_blank" > < /a><a href="https:/ / www.instagram.com / kalashnikov_clowns " class=" fab fa - instagram " aria-label=" Instagram " target="_blank "></a><a href=" https: //www.youtube.com/channel/UCQh9KOEg3CZis0be1eUrdRA" class="fab fa-youtube" aria-label="YouTube" target="_blank"></a></div>'
+    // }
 ];
 
 // Loop that places list items to create the navBar. 
